@@ -1,16 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import reactLogo from './assets/react.svg' //las imagenes se deben importar
+import viteLogo from '/vite.svg' //lo que este dentro de la carpeta imagen no hace falta./
+// 
 
+
+
+//en un componente (en este caso el componente es la funcion), la lógica siempre va antes del return
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) //[nombre de la constante o estado inicial, funcion p q se cumpla]
+  const [nombre, setNombre]=useState("ZOLEICA")
 
   return (
+    //<> </> esto es un fragment , seria como un div. Si se quiere aplicar clase hay que convertir a div
+    //las clases se usan como ClassName (creado por meta)
     <>
-      <div>
+      <div className='bg-dark'>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo} className="logo" alt="Vite logo" /> 
+        
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -18,7 +25,11 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        
+        <button onClick={() => {
+          setCount((count) => count + 1)
+          setNombre((nombre)=> nombre + "A")
+        }}>
           count is {count}
         </button>
         <p>
@@ -28,6 +39,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <h1>Hola mundo react {nombre} </h1>
     </>
   )
 }
